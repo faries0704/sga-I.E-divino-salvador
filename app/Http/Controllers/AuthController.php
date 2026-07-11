@@ -50,7 +50,7 @@ class AuthController extends Controller
             $user->login_attempts += 1;
 
             if ($user->login_attempts >= 3) {
-                $user->locked_until = Carbon::now()->addYear(); // bloqueo temporal
+                $user->locked_until = Carbon::now()->addMinutes(30);
             }
 
             $user->save();
